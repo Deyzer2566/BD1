@@ -1,0 +1,23 @@
+CREATE TABLE Места(id serial primary key,
+Название text);
+
+CREATE TABLE Персонажи(id serial primary key,
+Имя text,
+IDМеста int REFERENCES Места(id) NOT NULL);
+
+CREATE TABLE Чувства(id serial primary key,
+Название text);
+
+CREATE TABLE События(id serial primary key,
+Описание text);
+
+CREATE TABLE Чувства_персонажей(IDПерсонажа int REFERENCES Персонажи(id) NOT NULL,
+IDЧувства int REFERENCES Чувства(id) NOT NULL,
+IDСобытия int REFERENCES События(id),
+IDВызывающегоЧувства int REFERENCES Чувства(id));
+
+CREATE TABLE Местонахождение_событий(IDСобытия int REFERENCES События(id) NOT NULL,
+IDМеста int REFERENCES Места(id) NOT NULL);
+
+CREATE TABLE Участники_событий(IDСобытия int REFERENCES События(id) NOT NULL,
+IDПерсонажа int REFERENCES Персонажи(id) NOT NULL);

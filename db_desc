@@ -1,0 +1,11 @@
+SELECT id,Имя FROM Персонажи WHERE Имя='Олвин';
+
+SELECT Название from Чувства where id IN (
+SELECT IDЧувства from Чувства_персонажей where IDПерсонажа IN (
+SELECT id from Персонажи where Имя='Олвин'));
+
+SELECT Название from Чувства where id in(
+SELECT IDВызывающегоЧувства from Чувства_персонажей where IDЧувства in(
+SELECT id FROM Чувства WHERE Название='Бесстрашие'));
+
+
