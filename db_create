@@ -2,8 +2,8 @@ CREATE TABLE Места(id serial primary key,
 Название text);
 
 CREATE TABLE Персонажи(id serial primary key,
-Имя text,
-IDМеста int REFERENCES Места(id) NOT NULL);
+IDМеста int REFERENCES Места(id) NOT NULL,
+Имя text);
 
 CREATE TABLE Чувства(id serial primary key,
 Название text);
